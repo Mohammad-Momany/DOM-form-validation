@@ -24,7 +24,7 @@ const checkEmail = (input) => {
   if (re.test(input.value.trim())) {
     showSuccess(input);
   } else {
-    showError(input, "Email is not valid");
+    showError(input, "Email is not vaild");
   }
 };
 
@@ -38,10 +38,34 @@ const checkRequired = (inputArr) => {
     }
   });
 };
+
+// Check input length
+function checkLength(input, min, max) {
+  if (input.value.length < min) {
+    showError(
+      input,
+      `${firstCharUpperCase(input)} must be at least ${min} characters`
+    );
+  } else if (input.value.length > max) {
+    showError(
+      input,
+      `${firstCharUpperCase(input)} must be less than ${max} characters`
+    );
+  } else {
+    showSuccess(input);
+  }
+}
+
+// The first character to upperCase
 const firstCharUpperCase = (input) => {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 };
+
+// Event listeners
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkRequired([username, email, password, confirmPassword]);
+  checkLength(username, 4, 10);
+  checkLength(password, 8, 20);
+  checkEmail(email);
 });
