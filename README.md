@@ -7,3 +7,9 @@
 2. Email is valid
 3. Input length
 4. Password and Confirm Password is a match
+
+## The Form
+![Form Validator](../../../D:\JCA\DOM-form-validator\Validator-form.PNG)
+
+## Show Error
+![Form Validator](../../../D:\JCA\DOM-form-validator\form-error.PNG)
