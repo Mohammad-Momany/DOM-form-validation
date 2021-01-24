@@ -40,7 +40,7 @@ const checkRequired = (inputArr) => {
 };
 
 // Check input length
-function checkLength(input, min, max) {
+const checkLength = (input, min, max) => {
   if (input.value.length < min) {
     showError(
       input,
@@ -54,7 +54,7 @@ function checkLength(input, min, max) {
   } else {
     showSuccess(input);
   }
-}
+};
 
 // The first character to upperCase
 const firstCharUpperCase = (input) => {
