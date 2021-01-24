@@ -18,16 +18,6 @@ const showSuccess = (input) => {
   formControl.className = "form-control success";
 };
 
-// Check email is valid
-const checkEmail = (input) => {
-  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  if (re.test(input.value.trim())) {
-    showSuccess(input);
-  } else {
-    showError(input, "Email is not vaild");
-  }
-};
-
 // Check required fields
 const checkRequired = (inputArr) => {
   inputArr.forEach((input) => {
@@ -35,8 +25,22 @@ const checkRequired = (inputArr) => {
       showError(input, `${firstCharUpperCase(input)} is required`);
     } else {
       showSuccess(input);
+      checkLength(username, 3, 15);
+      checkLength(password, 6, 25);
+      checkEmail(email);
+      checkPasswordsMatch(password, confirmPassword);
     }
   });
+};
+
+// Check email is valid
+const checkEmail = (input) => {
+  const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(input.value.trim())) {
+    showSuccess(input);
+  } else {
+    showError(input, "Email is not valid");
+  }
 };
 
 // Check input length
@@ -56,7 +60,14 @@ const checkLength = (input, min, max) => {
   }
 };
 
-// The first character to upperCase
+// Check passwords match
+const checkPasswordsMatch = (pass, confirmPass) => {
+  if (pass.value !== confirmPass.value) {
+    showError(confirmPass, "Passwords do not match");
+  }
+};
+
+// Change the first character to Uppercase
 const firstCharUpperCase = (input) => {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 };
@@ -65,7 +76,4 @@ const firstCharUpperCase = (input) => {
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkRequired([username, email, password, confirmPassword]);
-  checkLength(username, 4, 10);
-  checkLength(password, 8, 20);
-  checkEmail(email);
 });
