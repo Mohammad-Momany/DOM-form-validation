@@ -32,13 +32,15 @@ const checkEmail = (input) => {
 const checkRequired = (inputArr) => {
   inputArr.forEach((input) => {
     if (input.value.trim() === "") {
-      showError(input, `${getFieldName(input)} is required`);
+      showError(input, `${firstCharUpperCase(input)} is required`);
     } else {
       showSuccess(input);
     }
   });
 };
-
+const firstCharUpperCase = (input) => {
+  return input.id.charAt(0).toUpperCase() + input.id.slice(1);
+};
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   checkRequired([username, email, password, confirmPassword]);
