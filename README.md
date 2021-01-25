@@ -12,4 +12,4 @@
 ![Form Validator](./README-IMG/Validator-form.PNG)
 
 ## Show Error
-![Form Validator](../../../D:\JCA\DOM-form-validator\README-IMG/form-error.PNG)
+![Form Validator](./README-IMG/form-error.PNG)
