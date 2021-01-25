@@ -1,6 +1,6 @@
 ## DOM Form Validator 
 
->Create a validition form use Document Object Model(DOM).
+>Create a validation form using the Document Object Model (DOM)..
 
 > Use fo check all inputs and confirm that:
 1. Not empty
