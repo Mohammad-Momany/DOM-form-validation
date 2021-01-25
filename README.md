@@ -9,7 +9,7 @@
 4. Password and Confirm Password is a match
 
 ## The Form
-![Form Validator](../../../D:\JCA\DOM-form-validator\README-IMG/Validator-form.PNG)
+![Form Validator](./README-IMG/Validator-form.PNG)
 
 ## Show Error
 ![Form Validator](../../../D:\JCA\DOM-form-validator\README-IMG/form-error.PNG)
